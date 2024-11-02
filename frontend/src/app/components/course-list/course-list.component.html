@@ -1,0 +1,37 @@
+<app-header />
+
+<section class="py-20 font-['Lato']">
+  <div class="mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8 text-[#11448a]">Cursos disponibles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-center justify-center items-center mx-auto">
+      <div
+        *ngFor="let curso of listaCursos"
+        class="bg-[#dae8fa] mx-auto flex flex-col items-center justify-center text-center h-[95%] w-[75%] px-4 py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in"
+      >
+        <img
+          [src]="curso.imagen || 'assets/images/imagendeprueba.jpg'"
+          [alt]="curso.nombre"
+          class="w-[200px] h-[150px] mb-4 rounded-lg"
+        />
+        <h3
+          class="text-primary-900 text-xl font-semibold mb-2 flex justify-center items-center text-center"
+        >
+          {{ curso.nombre }}
+        </h3>
+        <p
+          class="text-neutrals-600 flex justify-center items-center text-center mt-5"
+        >
+          {{ curso.descripcion || "Gratuito y con certificación" }}
+        </p>
+        <a
+          [routerLink]="['/curso', curso._id]"
+          class="bg-[#11448a] flex items-center justify-center text-center text-white text-l rounded-[8px] w-[140px] h-[60px] mt-6 hover:bg-[#0d366d]"
+        >
+          Más información
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

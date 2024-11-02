@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+h2, h3, p, a {
+    font-family: "Lato", sans-serif;
+}
+.text-lg {
+    font-weight: 600; /* O cualquier otro ajuste que desees */
+  }
+  
+  .bg-blue-600 {
+    transition: background-color 0.3s ease; /* Para un efecto suave al pasar el ratón */
+  }

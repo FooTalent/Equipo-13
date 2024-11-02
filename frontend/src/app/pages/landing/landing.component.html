@@ -1,0 +1,235 @@
+<app-header />
+
+<!-- Sección para registro -->
+<section
+  class="relative bg-[url('assets/images/foto1.png')] bg-cover bg-no-repeat bg-center min-h-[70vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-start md:items-center justify-start md:justify-start font-['Lato']"
+>
+  <div
+    class="relative max-w-screen-lg z-10 grid grid-cols-1 md:grid-cols-12 p-4 sm:p-8"
+  >
+    <!-- Columna izquierda (Texto) -->
+    <div
+      class="col-span-12 md:col-span-7 flex flex-col justify-start text-left space-y-2 sm:space-y-4 md:mx-0 mx-4 md:my-0 my-[-7px]"
+    >
+      <div
+        class="title-import relative max-w-2xl p-2 sm:p-4 space-y-2 sm:space-y-4"
+      >
+        <h1
+          class="text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+        >
+          Transforma tu futuro <br />
+          profesional
+        </h1>
+        <p
+          class="text-black text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold"
+        >
+          Programar nunca fue tan fácil
+        </p>
+        <button
+          class="text-white mt-2 sm:mt-4 px-4 sm:px-6 py-2 sm:py-3 bg-[#0a2750] rounded-lg text-xs sm:text-sm md:text-base font-normal"
+        >
+          <a href="/registro" class="text-neutral-50 font-normal leading-tight">
+            Crea tu cuenta gratis
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección para buscar cursos (Aprende a codificar) -->
+<section class="py-6 sm:py-12">
+  <div class="container mx-auto text-center">
+    <h2
+      class="w-full max-w-[950px] mx-auto text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl mb-6 sm:mb-10 font-bold font-['Lato'] leading-tight"
+    >
+      Aprende a codificar desde cero con nuestros cursos gratuitos
+    </h2>
+
+    <!-- Sección de cursos disponibles (Aprende a codificar) -->
+    <section>
+      <app-course-navbar />
+    </section>
+  </div>
+</section>
+
+<!-- Sección de exploración de cursos -->
+<h2
+  class="w-full max-w-[1288px] mx-auto text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold font-['Lato'] leading-tight mt-8 sm:mt-10 mb-6 sm:mb-10 text-center"
+>
+  Explora nuestros cursos y encuentra tu pasión
+</h2>
+
+<!-- Cursos listados para "Explora nuestros cursos" -->
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 sm:px-8 text-center justify-center mx-auto"
+>
+  <div
+    *ngFor="let curso of explorarCursos.slice(0, 3)"
+    class="bg-[#dae8fa] flex flex-col items-center justify-center text-center h-auto w-[90%] sm:w-[75%] py-8 sm:py-12 rounded-[24px] border-l-4 border-[#11448a] shadow-[0px_4px_4px_0px_#00000024] transition ease-out hover:bg-[#90b9f1] hover:ease-in mx-auto"
+  >
+    <img
+      [src]="curso.imagen || 'assets/images/imagendeprueba.jpg'"
+      [alt]="curso.nombre"
+      class="w-[150px] sm:w-[200px] h-[120px] sm:h-[150px] mb-4 rounded-lg"
+    />
+    <h3
+      class="text-primary-900 text-lg sm:text-xl font-semibold mb-2 flex justify-center items-center text-center"
+    >
+      {{ curso.nombre }}
+    </h3>
+    <p class="text-neutrals-600 text-sm sm:text-base mt-2 sm:mt-5">
+      {{ curso.descripcion || "Gratuito y con certificación" }}
+    </p>
+    <a
+      *ngIf="curso._id"
+      [routerLink]="['/curso', curso._id]"
+      class="bg-[#11448a] mx-auto flex items-center justify-center text-center text-white text-sm sm:text-base rounded-[8px] w-[120px] sm:w-[140px] h-[50px] sm:h-[60px] mt-4 sm:mt-6 hover:bg-[#0d366d]"
+    >
+      Ver más
+    </a>
+  </div>
+</div>
+
+<!-- Botón "Ver todos los cursos" -->
+<div class="flex justify-center mt-6 sm:mt-8 mb-6 sm:mb-8 font-['Lato']">
+  <button
+    class="text-white px-4 sm:px-6 py-2 sm:py-3 bg-[#0a2750] rounded-lg text-sm sm:text-base"
+    [routerLink]="['/cursos']"
+  >
+    Ver todos los cursos
+  </button>
+</div>
+
+<!-- Sección de aprende -->
+<section
+  class="relative bg-[url('assets/images/foto2.png')] bg-cover bg-no-repeat bg-center min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-start md:items-center justify-center md:justify-end font-['Lato']"
+>
+  <div
+    class="relative max-w-screen-lg z-10 grid grid-cols-1 md:grid-cols-12 p-4 sm:p-8 w-full"
+  >
+    <!-- Columna derecha (Texto) -->
+    <div
+      class="col-span-12 md:col-span-7 md:col-start-6 flex flex-col items-center md:items-end text-center md:text-right space-y-2 sm:space-y-4 mt-4 md:mt-0"
+    >
+      <div class="title-import max-w-2xl p-2 sm:p-4 space-y-2 sm:space-y-4">
+        <h1
+          class="text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+        >
+          Aprende a tu ritmo de forma práctica
+        </h1>
+        <p
+          class="text-black text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold"
+        >
+          Clases dinámicas, actividades al final de cada módulo y proyectos que
+          te ayudarán a enfrentar desafíos reales y a prepararte para el futuro.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de testimonios -->
+<section class="bg-neutrals-100 py-6 sm:py-12">
+  <div class="container mx-auto text-center">
+    <h1
+      class="text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold font-['Lato'] leading-tight mb-8 sm:mb-20"
+    >
+      Tu puerta de entrada al mundo de la programación
+    </h1>
+
+    <div
+      class="w-full max-w-[1192px] mx-auto px-4 py-6 sm:py-8 bg-[#f9f9f9] rounded-lg shadow flex-col gap-4 sm:gap-6 inline-flex"
+    >
+      <h2
+        class="text-center text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl sm:text-[35px] font-bold font-['Lato'] leading-tight"
+      >
+        Lo que nuestros estudiantes dicen
+      </h2>
+      <h3
+        class="text-center text-black text-lg sm:text-[25px] font-normal font-['Lato'] leading-tight mb-4 sm:mb-8"
+      >
+        Cientos de historias de éxito en el mundo digital
+      </h3>
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-8">
+        <!-- Testimonio 1 -->
+        <div
+          class="w-full sm:w-[276px] flex flex-col items-center gap-4 sm:gap-6"
+        >
+          <img
+            class="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px]"
+            src="assets/images/user1.png"
+          />
+          <div class="text-black text-base sm:text-lg font-normal leading-snug">
+            "Este curso cambió mi vida. Nunca pensé que podría aprender a
+            programar, pero los materiales y la enseñanza fueron tan accesibles
+            que ahora estoy trabajando como desarrollador junior. ¡Gracias!"
+            <br />– Lorena
+          </div>
+        </div>
+        <!-- Testimonio 2 -->
+        <div
+          class="w-full sm:w-[276px] flex flex-col items-center gap-4 sm:gap-6"
+        >
+          <img
+            class="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px]"
+            src="assets/images/user2.png"
+          />
+          <div class="text-black text-base sm:text-lg font-normal leading-snug">
+            "Los instructores son muy pacientes y las clases están muy bien
+            estructuradas. Aprender a programar desde cero fue mucho más fácil
+            de lo que pensaba." <br />– Carlos
+          </div>
+        </div>
+        <!-- Testimonio 3 -->
+        <div
+          class="w-full sm:w-[276px] flex flex-col items-center gap-4 sm:gap-6"
+        >
+          <img
+            class="w-[80px] sm:w-[100px] h-[80px] sm:h-[100px]"
+            src="assets/images/user3.png"
+          />
+          <div class="text-black text-base sm:text-lg font-normal leading-snug">
+            "La plataforma es increíblemente amigable y me encanta cómo te guían
+            paso a paso. Definitivamente recomendaría estos cursos a cualquier
+            persona interesada en el desarrollo web." <br />– Ana
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de registro -->
+<section
+  class="relative bg-[url('assets/images/foto3.png')] bg-cover bg-no-repeat bg-center min-h-[60vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-start md:items-center justify-start md:justify-start font-['Lato']"
+>
+  <div
+    class="relative max-w-screen-lg z-10 grid grid-cols-1 md:grid-cols-12 p-4 sm:p-8"
+  >
+    <!-- Columna izquierda (Texto) -->
+    <div
+      class="col-span-12 md:col-span-7 flex flex-col justify-center md:justify-start text-left space-y-2 sm:space-y-4 md:mx-0 mx-4 md:my-0 my-8"
+    >
+      <div
+        class="title-import relative max-w-2xl p-2 sm:p-4 space-y-2 sm:space-y-4"
+      >
+        <h1
+          class="text-black text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+        >
+          ¡Empieza hoy! Tu futuro en <br />
+          programación te espera
+        </h1>
+        <button
+          class="text-white mt-2 sm:mt-4 px-4 sm:px-6 py-2 sm:py-3 bg-[#0a2750] rounded-lg text-xs sm:text-sm md:text-base font-normal"
+        >
+          <a href="/registro" class="text-neutral-50 font-normal leading-tight">
+            Crea tu cuenta gratis
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

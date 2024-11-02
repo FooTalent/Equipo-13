@@ -1,0 +1,27 @@
+<app-header class="md:hidden relative"/>
+<main class="bg-gray-200 h-fit flex flex-row p-[10px]">
+  <!-- Panel de Control -->
+  <app-panel-de-control class="mr-[6%] lg:max-w-[15%] lg:block sticky hidden"></app-panel-de-control>
+
+  <div class="w-[100%] md:w-[75%] h-fit my-[2%] pb-[2%] z-100 relative">
+    <!-- seccion de inicio -->
+
+    <div class="p-[12px] h-[5%]">
+      <app-header-greeting [usuario]="usuario" class="h-[10%]"></app-header-greeting>
+    </div>
+    <div class="p-[12px]">
+      <app-crear-curso-tarjeta
+      [titulo]="'¡Comienza a aprender!'"
+      [descripcion]="'Únete a un curso hoy y mejora tus habilidades en programación.'"
+      [botonUrl]="''"
+      [clickHandler]="redirectToPage"
+      >
+      </app-crear-curso-tarjeta>
+    </div>
+    <!-- Tarjetas de Cursos -->
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <app-curso-tarjeta *ngFor="let curso of cursos" [curso]="curso"
+        (cursoEliminado)="obtenerCursosPropios(idUsuario!)"></app-curso-tarjeta>
+    </div>
+  </div>
+</main>
